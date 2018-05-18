@@ -1,0 +1,23 @@
+.search {
+  font-family: fantasy;
+}
+
+.search .container {
+  display: grid;
+  grid-template-columns: 80% 20%;
+  text-align: left;
+  grid-gap: 10px;
+}
+
+.search .container div.table {
+  grid-column-start: 1;
+  grid-column-end: 3;
+}
+.search .container table {
+  width: 100%;
+}
+
+.search .container h1 {
+  grid-column-start: 1;
+  grid-column-end: 3;
+}

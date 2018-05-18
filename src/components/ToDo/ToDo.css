@@ -1,0 +1,8 @@
+.todo {
+  text-align: left;
+}
+
+.todo-checkbox {
+  -webkit-transform: scale(2, 2);
+  margin-right: 1rem;
+}

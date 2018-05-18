@@ -1,0 +1,15 @@
+.NestedLevel .Menu {
+  display: grid;
+  grid-template-columns: repeat(3, 200px) auto;
+  font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif
+}
+.NestedLevel p {
+  text-align: justify;
+  margin: 20px;
+}
+.MenuLevel {
+  border-right: 1px solid grey;
+}
+.NestedLevel li {
+  border-bottom: 1px solid grey;
+}

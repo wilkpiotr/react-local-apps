@@ -1,0 +1,22 @@
+.Gallery .container {
+  display: grid;
+  grid-template-columns: 60% auto;
+  text-align: left;
+  grid-gap: 10px;
+}
+
+.Gallery .chosen {
+  border: 2px solid red;
+  padding: 2px;
+}
+
+.Gallery .galleryLeft {
+  display: grid;
+  grid-template-columns: 30% 30% 30%;
+  text-align: left;
+  grid-gap: 10px;
+}
+
+.search img {
+  width: 2rem;
+}

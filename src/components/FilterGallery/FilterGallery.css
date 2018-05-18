@@ -1,0 +1,9 @@
+.FilterGallery .container {
+    display: grid;
+    grid-template-columns: repeat(4, 200px);
+    grid-gap: 10px;
+}
+
+.FilterGallery .header {
+  padding: 10px;
+}
