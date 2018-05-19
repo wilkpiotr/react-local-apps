@@ -8,17 +8,8 @@ import Gallery from './components/Gallery/Gallery';
 import FilterGallery from './components/FilterGallery/FilterGallery';
 import NestedLevel from './components/NestedLevel/NestedLevel';
 import LikeMovies from './components/LikeMovies/LikeMovies';
-import axios from 'axios';
-
 
 class App extends Component {
-
-  componentDidMount() {
-    axios.get('http://localhost:3000/json/gallery.json')
-    .then((result) => {
-      console.log(result);
-    })
-  }
 
   render() {
     return (
