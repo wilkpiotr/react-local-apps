@@ -1,44 +1,55 @@
-import React from 'react';
+import React, { Component } from 'react';
 import './ToDo.css';
+import Title from './Title';
+import TasksList from './TasksList';
+import AddTask from './AddTask';
+// import {PropTypse} from 'prop'
 
-const ToDo = () => {
+class  ToDo extends Component {
 
-  return (
-    <section className="section todo project">
-      <div className="columns">
-        <div className="column container is-fluid">
-          <h1 className="title">ToDo React App &nbsp;  
-          <span className="has-text-success">12</span> / 20
-          </h1>
-          <div className="notification">
-            <div>
-              <label className="checkbox is-size-3">
-                <input className="todo-checkbox" type="checkbox" />
-                Buy Milk
-              </label>
-            </div>
 
-            <div>
-              <label className="checkbox is-size-3">
-                <input className="todo-checkbox" type="checkbox" />
-                Pay Taxes
-              </label>
-            </div>
+  state = { tasks: [
+    {title: 'Buy Milk',done: true},  
+    {title: 'Pay Taxes', done: false}],
+    input: null}
+
+ 
+
+  handleTaskClick = (index) => { 
+    const newTasks = [...this.state.tasks]
+    if (newTasks[index].done) {
+      newTasks[index].done = false;
+    } else {newTasks[index].done = true};
+  
+    this.setState({tasks: newTasks})  
+  }
+  
+  handleAddTask = (e) => {
+    if (this.input.value !== '') {
+      const newTasks = [...this.state.tasks]
+      const newTask = {title: this.input.value, done: false}
+      newTasks.push(newTask);
+      this.input.value = '';
+      this.input.placeholder = 'Your task description';
+      this.setState({tasks: newTasks})
+    } else {this.input.placeholder = 'You need add task'}
+  }
+
+  render() {
+
+   
+    return (
+      <section className="section todo project">
+        <div className="columns">
+          <div className="column container is-fluid">
+            <Title counter={this.state.tasks}/>
+            <TasksList onTaskClick={this.handleTaskClick} tasks={this.state.tasks}/>
+            <AddTask rel={el => {this.input = el}} onAddTaskClick={this.handleAddTask}/>
           </div>
-
-          <div className="columns">
-            <div className="column is-two-thirds">
-              <input className="input is-large" placeholder="Your task description" />
-            </div>
-            <div className="column">  
-              <a className="button is-link is-large">Add Task</a>
-            </div>
-          </div>  
-
-         </div>
-      </div>  
-    </section>
-  )
+        </div>  
+      </section>
+    )
+  }
 }
 
 export default ToDo;
