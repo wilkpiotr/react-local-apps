@@ -5,24 +5,21 @@ import TasksList from './TasksList';
 import AddTask from './AddTask';
 // import {PropTypse} from 'prop'
 
-class  ToDo extends Component {
-
+class ToDo extends Component {
+  input = null;
 
   state = { tasks: [
-    {title: 'Buy Milk',done: true},  
-    {title: 'Pay Taxes', done: false}],
-    input: null}
-
- 
+      {title: 'Buy Milk',done: true},  
+      {title: 'Pay Taxes', done: false}],
+  }
 
   handleTaskClick = (index) => { 
     const newTasks = [...this.state.tasks]
     if (newTasks[index].done) {
       newTasks[index].done = false;
     } else {newTasks[index].done = true};
-  
     this.setState({tasks: newTasks})  
-  }
+  };
   
   handleAddTask = (e) => {
     if (this.input.value !== '') {
@@ -31,13 +28,15 @@ class  ToDo extends Component {
       newTasks.push(newTask);
       this.input.value = '';
       this.input.placeholder = 'Your task description';
+      this.input.classList.toggle('warning');
       this.setState({tasks: newTasks})
-    } else {this.input.placeholder = 'You need add task'}
-  }
+    } else {this.input.placeholder = 'You need add task';
+      this.input.classList.toggle('warning');
+    }
+  };
 
   render() {
 
-   
     return (
       <section className="section todo project">
         <div className="columns">
@@ -50,6 +49,6 @@ class  ToDo extends Component {
       </section>
     )
   }
-}
+};
 
 export default ToDo;
