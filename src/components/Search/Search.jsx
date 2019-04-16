@@ -10,7 +10,13 @@ class Search extends Component {
   state = {movies}
 
   handleChange = (e) => {
-    console.log('change')
+    const string = e.target.value;
+    const newMovies = movies.filter((movie) => {
+      return movie.title.toLowerCase().match(string)
+    })
+    this.setState((state) => {
+      return {movies: newMovies}
+    })
   }
 
   render() {

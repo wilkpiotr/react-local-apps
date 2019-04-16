@@ -21,3 +21,8 @@
   grid-column-start: 1;
   grid-column-end: 3;
 }
+
+.no-movies {
+  color: red;
+  padding: 10px;
+}
