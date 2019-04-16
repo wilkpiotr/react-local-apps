@@ -7,7 +7,6 @@ return (
     <div className="select is-medium">
         <select onChange={props.onSelectChange}> 
             <option>All</option>
-
             {props.categories.map((cat) => {
                 return <option key={cat.id} id={cat.id} value={cat.name}>{cat.name}</option>
             })}

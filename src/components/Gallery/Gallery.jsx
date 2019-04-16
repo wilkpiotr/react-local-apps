@@ -16,7 +16,6 @@ class Gallery extends Component  {
     this.setState({index: index})
   }
 
-
   render() {
 
     return (<section className="section Gallery project">

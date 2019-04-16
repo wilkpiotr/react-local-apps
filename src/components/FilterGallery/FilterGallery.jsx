@@ -9,14 +9,14 @@ class FilterGallery extends Component {
   state = {images, categories, filteredImages: images}
 
   handleSelectChange = (e) => {
-    const catID = this.state.categories.filter((cat) => { return (cat.name === e.target.value)})[0] ? 
-    this.state.categories.filter((cat) => { return (cat.name === e.target.value)})[0].id :
+    const catID = this.state.categories.find((cat) => { return (cat.name === e.target.value)}) ? 
+    this.state.categories.find((cat) => { return (cat.name === e.target.value)}).id :
     false;
-    let newImages = catID ? this.state.images.filter((img) => { return img.categoryId === catID}) : this.state.images;
-    newImages.length ? newImages : newImages = [{id: 0, img:'NO PHOTOS', categoryId: 0}]
+    const newImages = catID ? 
+    this.state.images.filter((img) => { return img.categoryId === catID}) :
+    this.state.images;
     
     this.setState({filteredImages: newImages})
-    
   }
 
   render() {
@@ -28,9 +28,7 @@ class FilterGallery extends Component {
           <Select onSelectChange={this.handleSelectChange} categories={this.state.categories}/>
         </div>
       </div>
-      <div className="container">
-          <Gallery images={this.state.filteredImages}/>
-      </div> 
+        <Gallery images={this.state.filteredImages}/>
     </section>)
     }
 }
