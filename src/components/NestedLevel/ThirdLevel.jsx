@@ -1,15 +1,14 @@
 import React from 'react';
 
 const ThirdLevel = (props) => {
-    return <div className="MenuLevel">
+    return props.lowestSubcat && <div className="MenuLevel">
     <ul className="menu-list">
-      <li><a className="is-active">Sci-Fi</a></li>
-      <li><a>Action</a></li>
-      <li><a>Family</a></li>
-      <li><a>Comedy</a></li>
-      <li><a>Thiller</a></li>
+        {props.lowestSubcat.items.map((cat, index) => {
+          if (cat.name === props.active) {return <li key={index}><a className='is-active' onClick={props.onClick} data-name={cat.name}>{cat.name}</a></li>}
+            return <li key={index}><a onClick={props.onClick} data-name={cat.name}>{cat.name}</a></li>
+        })}
     </ul>  
-  </div>
+</div>
 }
 
 export default ThirdLevel;
